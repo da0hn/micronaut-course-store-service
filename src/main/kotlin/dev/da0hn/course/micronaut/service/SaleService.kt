@@ -1,15 +1,30 @@
 package dev.da0hn.course.micronaut.service
 
 import dev.da0hn.course.micronaut.controller.dto.SaleInput
+import dev.da0hn.course.micronaut.domain.Sale
+import dev.da0hn.course.micronaut.domain.Vehicle
 import dev.da0hn.course.micronaut.http.client.VehicleHttpClient
 import jakarta.inject.Singleton
 
 @Singleton
 class SaleService(private val vehicleHttpClient: VehicleHttpClient) {
 
-  fun makeSale(saleInput: SaleInput) {
+  fun makeSale(saleInput: SaleInput): Sale {
     val vehicleDto = vehicleHttpClient.findById(saleInput.vehicleId)
-    println(vehicleDto)
+
+    val sale = Sale(
+      client = saleInput.client,
+      vehicle = Vehicle(
+        id = vehicleDto.id,
+        brand = vehicleDto.brand,
+        model = vehicleDto.model,
+        year = vehicleDto.year
+      ),
+      price = saleInput.price,
+      installmentsQuantity = saleInput.installments,
+    )
+
+    return sale
   }
 
 }
