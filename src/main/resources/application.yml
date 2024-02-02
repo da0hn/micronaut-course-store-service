@@ -1,0 +1,5 @@
+micronaut:
+  application:
+    name: store-service
+  server:
+    port: 8081
