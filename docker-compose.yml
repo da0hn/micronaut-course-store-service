@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  store-service-cache:
+    image: redis:alpine
+    container_name: store-service-cache
+    ports:
+      - "6379:6379"
+    networks:
+      - store-service-network
+networks:
+  store-service-network:
+    name: store-service-network
+    driver: bridge
