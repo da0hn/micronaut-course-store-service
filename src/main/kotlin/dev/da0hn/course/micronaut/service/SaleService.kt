@@ -7,10 +7,10 @@ import dev.da0hn.course.micronaut.http.client.VehicleHttpClient
 import jakarta.inject.Singleton
 
 @Singleton
-class SaleService(private val vehicleHttpClient: VehicleHttpClient) {
+class SaleService(private val vehicleService: VehicleService) {
 
   fun makeSale(saleInput: SaleInput): Sale {
-    val vehicleDto = vehicleHttpClient.findById(saleInput.vehicleId)
+    val vehicleDto = vehicleService.getVehicle(saleInput.vehicleId)
 
     val sale = Sale(
       client = saleInput.client,
