@@ -20,6 +20,7 @@ dependencies {
   implementation("org.yaml:snakeyaml:2.2") // To read *.yml files https://blog.bhanunadar.com/solving-unable-to-read-properties-from-application-yml-in-micronaut/
   implementation("io.micronaut.kotlin:micronaut-kotlin-runtime:4.0.1")
   implementation("io.micronaut.serde:micronaut-serde-jackson:2.1.0")
+  implementation("io.micronaut:micronaut-retry:4.0.1")
   implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
   compileOnly("io.micronaut:micronaut-http-client:4.0.1")
