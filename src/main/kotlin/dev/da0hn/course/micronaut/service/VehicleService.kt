@@ -15,13 +15,13 @@ class VehicleService(
 
   fun getVehicle(vehicleId: Long): VehicleDto {
     val vehicle = this.vehicleHttpClient.findById(vehicleId)
-    registryInCache(vehicle);
+    this.registryInCache(vehicle);
     return vehicle
   }
 
   private fun registryInCache(vehicle: VehicleDto) {
     val jedisPool = JedisPool(JedisPoolConfig(), "localhost", 6379)
-    objectMapper.writeValueAsString(vehicle).let { vehicleJson ->
+    this.objectMapper.writeValueAsString(vehicle).let { vehicleJson ->
       jedisPool.resource.set(vehicle.id.toString(), vehicleJson)
     }
   }
