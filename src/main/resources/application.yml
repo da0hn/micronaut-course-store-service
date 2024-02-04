@@ -3,3 +3,6 @@ micronaut:
     name: store-service
   server:
     port: 8081
+kafka:
+  bootstrap:
+    servers: localhost:19092
