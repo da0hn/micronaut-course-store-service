@@ -9,7 +9,7 @@ import io.micronaut.retry.annotation.Recoverable
 
 @Recoverable // Since Micronaut Framework 4.0, declarative clients annotated with @Client no longer invoke fallbacks by default. To restore the previous behaviour add the following dependency and annotate any declarative clients with @Recoverable.
 @CircuitBreaker(attempts = "3")
-@Client(id = "http://localhost:8080", path = "/vehicles")
+@Client(id = "vehicle-service", path = "/vehicles")
 interface VehicleHttpClient {
 
   @Get("/{id}")

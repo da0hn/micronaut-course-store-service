@@ -6,3 +6,8 @@ micronaut:
 kafka:
   bootstrap:
     servers: localhost:19092
+consul:
+  client:
+    discovery:
+      enabled: true
+    default-zone: "localhost:8500"
